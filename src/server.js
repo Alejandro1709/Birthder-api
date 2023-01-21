@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import contactRoutes from './routes/contactRoutes.js';
 import config from './config.js';
 
 const app = express();
@@ -16,5 +17,7 @@ app.use(cors());
 if (ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.use('/api/v1/contacts', contactRoutes);
 
 export default app;
